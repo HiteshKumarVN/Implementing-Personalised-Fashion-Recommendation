@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalised Fashion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body stretches to at least the full height of the viewport */
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 0.75em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Allow the section to grow and take up remaining space */
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.5em; 
+            background-color: #4699f1;
+            color: #fff;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="file"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff; 
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .image-selection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .image-selection label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .image-selection img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 8px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+
+        .image-selection input[type="radio"] {
+            display: none;
+        }
+
+        .image-selection input[type="radio"]:checked + img {
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Personalised Fashion</h1>
+</header>
+
+<section>
+    <h2>User Profile Information</h2>
+    <form>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="photo">Upload Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+
+        <div>
+            <label>Select your body shape</label>
+        </div>
+
+        <div class="image-selection">
+            <label>
+                <input type="radio" name="image" value="image1" required>
+                <img src="C:\Users\Admin\Desktop\Rectangle.jpg" alt="Image 1">
+                Rectangle
+            </label>
+            <label>
+                <input type="radio" name="image" value="image2" required>
+                <img src="C:\Users\Admin\Desktop\Oval.jpg" alt="Image 2">
+                Oval
+            </label>
+            <label>
+                <input type="radio" name="image" value="image3" required>
+                <img src="C:\Users\Admin\Desktop\Triangle.jpg" alt="Image 3">
+                Triangle
+            </label>
+            <label>
+                <input type="radio" name="image" value="image4" required>
+                <img src="C:\Users\Admin\Desktop\InvertedTriangle.jpg" alt="Image 4">
+                Inverted Triangle
+            </label>
+            <label>
+                <input type="radio" name="image" value="image5" required>
+                <img src="C:\Users\Admin\Desktop\Trapezoid.jpg" alt="Image 5">
+                Trapezoid
+            </label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<footer>
+    &copy; 2024 Personalised Fashion. All rights reserved.
+</footer>
+
+</body>
+</html>

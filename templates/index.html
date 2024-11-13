@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body stretches to at least the full height of the viewport */
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 0.75em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Allow the section to grow and take up remaining space */
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.5em; 
+            background-color: #4699f1;
+            color: #fff;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="file"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff; 
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .image-selection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .image-selection label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .image-selection img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 8px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+
+        .image-selection input[type="radio"] {
+            display: none;
+        }
+
+        .image-selection input[type="radio"]:checked + img {
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Personalised Fashion</h1>
+    </header>
+    <section>
+        <h2>Upload Image for Fashion Prediction</h1>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <label for="file">Upload Image:</label>
+            <input type="file" name="file" id="file" required><br><br>
+            
+            <div>
+            <label for="body_shape">Select Body Shape:</label>
+            </div>
+            
+            <div class="image-selection">
+                <label>
+                    <input type="radio" id="rectangle" name="body_shape" value="Rectangle" required>
+                    <img src="../static/Rectangle.jpg" alt="Rectangle"/>
+                    Rectangle
+                </label>
+                <label>
+                    <input type="radio" id="triangle" name="body_shape" value="Triangle" required>
+                    <img src="../static/Triangle.jpg" alt="Triangle"/>
+                    Triangle
+                </label>
+                <label>
+                    <input type="radio" id="oval" name="body_shape" value="Oval" required>
+                    <img src="../static/Oval.jpg" alt="Oval">
+                    Oval
+                </label>
+                <label>
+                    <input type="radio" id="invertedTriangle" name="body_shape" value="Inverted Triangle" required>
+                    <img src="../static/InvertedTriangle.jpg" alt="Inverted Triangle">
+                    Inverted Triangle
+                </label>
+                <label>
+                    <input type="radio" id="trapezoid" name="body_shape" value="Trapezoid" required>
+                    <img src="../static/Trapezoid.jpg" alt="Trapezoid">
+                    Trapezoid
+                </label>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <footer>
+        &copy; 2024 Personalised Fashion. All rights reserved.
+    </footer>
+</body>
+</html>

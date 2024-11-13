@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion Prediction Results</title>
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+        .image-grid img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fashion Prediction Results</h1>
+    <p><strong>Predicted Face Shape:</strong> {{ predicted_class }}</p>
+    <p><strong>Detected Skin Tone:</strong> {{ skin_tone }}</p>
+
+    {% if recommendations is not none %}
+        <h2>Outfit Recommendations</h2>
+        <ul>
+            {% for index, row in recommendations.iterrows() %}
+                <li><strong>Outfits:</strong> {{ row['Outfits'] }}</li>
+                <li><strong>Accessories:</strong> {{ row['Accessories'] }}</li>
+                <li><strong>Suitable Colors:</strong> {{ row['Suitable Colors'] }}</li>
+                <br>
+            {% endfor %}
+        </ul>
+
+        <h2>Recommended Color Palette</h2>
+        <img src="{{ url_for('static', filename='color_squares.png') }}" alt="Color Squares">
+
+        <h2>Formal Shirts</h2>
+        <div class="image-grid">
+            {% for image_url in formal_shirts_images[:9] %}
+                <img src="{{ image_url }}" alt="Formal Shirt">
+            {% endfor %}
+        </div>
+
+        <h2>Formal Trousers</h2>
+        <div class="image-grid">
+            {% for image_url in formal_trouser_images[:9] %}
+                <img src="{{ image_url }}" alt="Formal Trouser">
+            {% endfor %}
+        </div>
+
+        <h2>Suits</h2>
+        <div class="image-grid">
+            {% for image_url in suits_images[:9] %}
+                <img src="{{ image_url }}" alt="Suit">
+            {% endfor %}
+        </div>
+
+        <h2>Casual Shirts</h2>
+        <div class="image-grid">
+            {% for image_url in casuals_images[:9] %}
+                <img src="{{ image_url }}" alt="Casual Shirt">
+            {% endfor %}
+        </div>
+
+        <h2>Jeans</h2>
+        <div class="image-grid">
+            {% for image_url in jeans_images[:9] %}
+                <img src="{{ image_url }}" alt="Jeans">
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No recommendations found for the given inputs.</p>
+    {% endif %}
+
+    <button><a href="/">Back</a></button>
+</body>
+</html>
